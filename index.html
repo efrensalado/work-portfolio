@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Efrén Salado - Desarrollador Full Stack especializado en soluciones digitales, aplicaciones móviles y sistemas empresariales. Experiencia en React, PHP, Node.js y más.">
+    <meta name="keywords" content="desarrollador full stack, programador, freelance, react, php, node.js, aplicaciones móviles, desarrollo web">
+    <meta name="author" content="Efrén Salado">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-dominio.com/">
+    <meta property="og:title" content="Portafolio Profesional - Efrén Salado | Desarrollador Full Stack">
+    <meta property="og:description" content="Portafolio profesional de Efrén Salado - Desarrollador Full Stack especializado en soluciones digitales innovadoras.">
+    <meta property="og:image" content="https://tu-dominio.com/img/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tu-dominio.com/">
+    <meta property="twitter:title" content="Portafolio Profesional - Efrén Salado | Desarrollador Full Stack">
+    <meta property="twitter:description" content="Portafolio profesional de Efrén Salado - Desarrollador Full Stack especializado en soluciones digitales innovadoras.">
+    <meta property="twitter:image" content="https://tu-dominio.com/img/twitter-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <title>Portafolio Profesional - Efrén Salado | Desarrollador Full Stack</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-green: #10b981;
+            --dark-gray: #374151;
+            --light-gray: #6b7280;
+            --black: #111827;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius: 0.5rem;
+            --border-radius-lg: 1rem;
+            --border-radius-xl: 1.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+
+        /* Header */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 1rem 0;
+            box-shadow: var(--shadow-lg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand:hover {
+            color: var(--white) !important;
+            transform: scale(1.05);
+            transition: var(--transition);
+        }
+
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+            position: relative;
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-green) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue), var(--accent-green));
+            color: var(--white);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: var(--white);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            color: var(--white);
+        }
+
+        .hero-icon {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .btn-project {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .btn-project:hover {
+            background: var(--secondary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            background: var(--white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-xl);
+            border-left: 5px solid var(--accent-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-green), transparent);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--white);
+            padding: 5rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            height: 100%;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .skill-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1) rotate(5deg);
+            animation: pulse 2s infinite;
+        }
+
+        .skill-card h4 {
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: clamp(2rem, 5vw, 3rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image::before {
+            transform: translateX(100%);
+        }
+
+        .project-content {
+            padding: clamp(1rem, 3vw, 1.5rem);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-green);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 0.75rem;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-green);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-10px); 
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+                padding: 0 1.5rem;
+            }
+            
+            .hero {
+                padding: 80px 0 40px;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .about-content {
+                padding: 1.5rem;
+            }
+            
+            .skill-card {
+                padding: 1.5rem;
+                min-height: 180px;
+            }
+            
+            .project-content {
+                padding: 1rem;
+            }
+            
+            .contact-info {
+                padding: 1.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+
+            .hero-icon {
+                font-size: 5rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .btn {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .project-tech {
+                justify-content: center;
+            }
+            
+            .social-links a {
+                margin: 0 0.5rem;
+                font-size: 1.1rem;
+            }
+
+            .skill-card {
+                min-height: 160px;
+                padding: 1rem;
+            }
+
+            .hero-icon {
+                font-size: 4rem !important;
+            }
+
+            .about, .skills, .projects, .contact {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .btn:focus,
+        .nav-link:focus,
+        .social-links a:focus {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            .navbar,
+            .btn,
+            .social-links {
+                display: none !important;
+            }
+            
+            .hero {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code me-2"></i>Portafolio Dev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1>Desarrollador Full Stack</h1>
+                    <p>Especializado en crear soluciones digitales innovadoras y escalables. Experiencia en desarrollo web y sistemas empresariales.</p>
+                    <a href="#projects" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket me-2"></i>Ver Proyectos
+                    </a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-laptop-code hero-icon" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-content">
+                        <p class="lead mb-4">
+                            Soy un desarrollador full stack apasionado por crear soluciones tecnológicas que resuelvan problemas reales. 
+                            Con experiencia en múltiples tecnologías y frameworks, me especializo en:
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Desarrollo de aplicaciones web responsivas</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Sistemas de gestión empresarial</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Integración de APIs y servicios de pago</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Rediseño de sitios web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-card">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4>Frontend</h4>
+                        <p>HTML5, CSS3, JavaScript, Bootstrap, Angular</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-card">
+                        <i class="fas fa-server skill-icon"></i>
+                        <h4>Backend</h4>
+                        <p>PHP, Java, Node.js, Spring Boot, Laravel</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>Base de Datos</h4>
+                        <p>MySQL, PostgreSQL</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-card">
+                        <i class="fas fa-cogs skill-icon"></i>
+                        <h4>Herramientas</h4>
+                        <p>VS Code, Postman, Jira, Trello, Slack</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="row">
+                <!-- WeCare -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">WeCare - Plataforma de Salud</h5>
+                            <p class="project-description">
+                                Aplicación móvil completa para gestión de servicios de salud, incluyendo registro de usuarios, 
+                                sistema de pagos con OpenPay. Actulmente no hay servicios que proporionen datos para esta plataforma (descontinuada).
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">jQuery</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">OpenPay</span>
+                            </div>
+                            <a href="projects/wecare/public_html/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dicormo Technology -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Dicormo Technology</h5>
+                            <p class="project-description">
+                                Landing page para la empresa Dicormo Technology, con diseño moderno y funcional. Utilizado para la promoción de servicios de la empresa.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">PHP</span>
+                            </div>
+                            <a href="projects/dicormo_tecgnology/public_html/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celia Maya -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Campaña Política</h5>
+                            <p class="project-description">
+                                Sitio web para campaña política con diseño moderno, utilizado durante campaña a gobernatura.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Responsive</span>
+                            </div>
+                            <a href="projects/celia_maya/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema de Pagos -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Sistema de Pagos</h5>
+                            <p class="project-description">
+                                Integración de OpenPay a la plataforma de WeCare, para la gestión de pagos de servicios.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">OpenPay</span>
+                                <span class="tech-tag">UI/UX</span>
+                            </div>
+                            <a href="projects/formulario_pagos/Pagos/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bolsa de Trabajo -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Bolsa de Trabajo (Rediseño)</h5>
+                            <p class="project-description">
+                                Rediseño de homepage de bolsa de trabajo, pensado en una mejora en navegación y experiencia de usuario.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <a href="projects/bolsa_trabajo/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registro Web -->
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5 class="project-title">Formulario de Registro Web para Medicos (WeCare)</h5>
+                            <p class="project-description">
+                                Formulario de registro web para medicos, con validacion de campos, integrado posteriormente a la plataforma de WeCare.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Validation</span>
+                            </div>
+                            <a href="projects/RegistroWeb/index.html" class="btn btn-project" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title text-white">Contacto</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h5>Email</h5>
+                        <p>efrensalado@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <h5>Teléfono</h5>
+                        <p>+52 1 7581083053</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h5>Ubicación</h5>
+                        <p>Remoto / Presencial</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-code me-2"></i>Portafolio Profesional</h5>
+                    <p>Desarrollador Full Stack especializado en soluciones digitales innovadoras</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="https://github.com/efrensalado/" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/jesús-efrén-lópez-salado" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="text-center mb-0">
+                © 2025 Portafolio Profesional. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Utility functions
+        const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        // Smooth scrolling for navigation links with accessibility
+        const initSmoothScrolling = () => {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
+                    if (target) {
+                        // Update URL without page jump
+                        history.pushState(null, null, targetId);
+                        
+                        // Smooth scroll to target
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Focus management for accessibility
+                        setTimeout(() => {
+                            target.setAttribute('tabindex', '-1');
+                            target.focus();
+                        }, 1000);
+                    }
+                });
+            });
+        };
+
+        // Enhanced navbar with better performance
+        const initNavbar = () => {
+            const navbar = document.querySelector('.navbar');
+            let lastScrollY = window.scrollY;
+            
+            const updateNavbar = debounce(() => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Hide/show navbar on scroll (optional)
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollY = currentScrollY;
+            }, 10);
+            
+            window.addEventListener('scroll', updateNavbar);
+        };
+
+        // Enhanced intersection observer with better performance
+        const initAnimations = () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add staggered animation delay
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                        }, index * 100);
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.project-card, .skill-card, .about-content, .contact-info');
+            animateElements.forEach(el => {
+                el.classList.add('animate-ready');
+                observer.observe(el);
+            });
+        };
+
+        // Lazy loading for images (if any are added later)
+        const initLazyLoading = () => {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        };
+
+        // Enhanced form handling (if forms are added)
+        const initForms = () => {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Add form validation and submission logic here
+                });
+            });
+        };
+
+        // Keyboard navigation enhancement
+        const initKeyboardNavigation = () => {
+            document.addEventListener('keydown', (e) => {
+                // Escape key to close modals or return to top
+                if (e.key === 'Escape') {
+                    const modals = document.querySelectorAll('.modal.show');
+                    if (modals.length > 0) {
+                        // Close modal logic
+                    } else {
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            });
+        };
+
+        // Performance monitoring
+        const initPerformanceMonitoring = () => {
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                    }, 0);
+                });
+            }
+        };
+
+        // Service Worker registration (for PWA capabilities)
+        const initServiceWorker = () => {
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(registration => {
+                            console.log('SW registered: ', registration);
+                        })
+                        .catch(registrationError => {
+                            console.log('SW registration failed: ', registrationError);
+                        });
+                });
+            }
+        };
+
+        // Initialize all functionality when DOM is ready
+        const init = () => {
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (!prefersReducedMotion) {
+                initAnimations();
+            }
+            
+            initSmoothScrolling();
+            initNavbar();
+            initLazyLoading();
+            initForms();
+            initKeyboardNavigation();
+            initPerformanceMonitoring();
+            
+            // Initialize service worker only in production
+            if (window.location.hostname !== 'localhost') {
+                initServiceWorker();
+            }
+        };
+
+        // Run initialization when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // Handle window resize events
+        window.addEventListener('resize', debounce(() => {
+            // Recalculate any layout-dependent elements
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }, 250));
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-ready {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .navbar {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .navbar.scrolled {
+                background: rgba(30, 58, 138, 0.95) !important;
+                backdrop-filter: blur(20px);
+            }
+
+            .skill-card.animate-ready {
+                transform: translateY(50px) scale(0.9);
+            }
+
+            .skill-card.animate-in {
+                transform: translateY(0) scale(1);
+            }
+
+            .project-card.animate-ready {
+                transform: translateY(50px) rotateX(10deg);
+            }
+
+            .project-card.animate-in {
+                transform: translateY(0) rotateX(0deg);
+            }
+            
+            @media (prefers-reduced-motion: reduce) {
+                .animate-ready,
+                .animate-in,
+                .navbar {
+                    transition: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
