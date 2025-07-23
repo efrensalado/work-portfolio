@@ -1,0 +1,9 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^registro\.we\-care\.com\.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.registro\.we\-care\.com\.mx$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Sectigo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/we\-care\.com\.mx\/ApiWeCare\/Paginas\/RegistroWeb\/" [R=301,L]
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro - WeCare</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="registro_estilos.css">
+    <link rel="shortcut icon" href="./img/we-care-logo.png" type="image/x-icon">
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '168654271439792');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=168654271439792&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="./img/we-care-logo.png" alt="" />
+                <h3>Bienvenido</h3>
+                <p>Complete el registro con los datos solicitados.</p>
+            </div>
+            <div class="col-md-9 register-right" id="#form-registro">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Registro para Médicos</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre (s)" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="paterno" placeholder="Apellido Paterno" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="materno" placeholder="Apellido Materno" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nacimiento" placeholder="Seleccione su fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="genero">
+                                        <option class="hidden"  selected disabled>Seleccione un género</option>
+                                        <option>Masculino</option>
+                                        <option>Femenino</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="empleado">
+                                    <select class="form-control">
+                                        <option class="hidden"  selected disabled>Tipo de persona</option>
+                                        <option>Médico</option>
+                                        <option>Enfermero(a)</option>
+                                        <option>Psicologo</option>
+                                        <option>Nutriologo</option>
+                                        <option>Quiropractico</option>
+                                        <option>Fisioterapeuta</option>
+                                        <option>Servicio Tecnico Especialidad</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="noVendedor" placeholder="Número de Vendedor" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <select class="form-control" id="especialidad">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" maxlength="8" id="noCedula" class="form-control" placeholder="No. de cédula" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" minlength="10" maxlength="10" id="telefono" class="form-control" placeholder="No. de télefono/celular" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="correo" class="form-control" placeholder="Ingrese su dirección de correo electrónico" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="contraseña" class="form-control" placeholder="Ingrese su contraseña" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" id="confirmaPass" class="form-control" placeholder="Confirme su contraseña" value="" />
+                                    </div>
+                                    <input type="submit" id="registro" class="btnRegister" value="Registrar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XDLJWS4LFQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XDLJWS4LFQ');
+</script>
+<script src="./app.js"></script>
+
+</html>
