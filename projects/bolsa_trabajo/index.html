@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bolsa de trabajo moderna - Encuentra tu próximo empleo o publica ofertas de trabajo">
+    <meta name="keywords" content="bolsa de trabajo, empleos, vacantes, trabajo, reclutamiento">
+    <meta name="author" content="Efrén Salado">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <title>JobHub - Bolsa de Trabajo Moderna</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <img src="./src/img/suitcase.png" alt="JobHub Logo" class="logo">
+                    <span class="brand-text">JobHub</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#jobs" class="nav-link">Empleos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#companies" class="nav-link">Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-outline" id="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Iniciar Sesión
+                    </button>
+                    <button class="btn btn-primary" id="signup-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Registrarse
+                    </button>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Encuentra tu <span class="highlight">empleo ideal</span> o contrata al mejor talento
+                        </h1>
+                        <p class="hero-description">
+                            Conectamos profesionales talentosos con empresas innovadoras. 
+                            Miles de oportunidades esperando por ti.
+                        </p>
+                        
+                        <!-- Search Form -->
+                        <div class="search-container">
+                            <div class="search-box">
+                                <div class="search-input-group">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        class="search-input" 
+                                        placeholder="Título del trabajo, empresa o palabra clave"
+                                        id="job-search"
+                                    >
+                                </div>
+                                <div class="search-input-group">
+                                    <i class="fas fa-map-marker-alt search-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        class="search-input" 
+                                        placeholder="Ubicación"
+                                        id="location-search"
+                                    >
+                                </div>
+                                <button class="btn btn-primary search-btn" type="button">
+                                    <i class="fas fa-search"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Popular Searches -->
+                        <div class="popular-searches">
+                            <span class="popular-label">Búsquedas populares:</span>
+                            <div class="search-tags">
+                                <span class="search-tag">Desarrollador Full Stack</span>
+                                <span class="search-tag">Diseñador UX/UI</span>
+                                <span class="search-tag">Marketing Digital</span>
+                                <span class="search-tag">Ventas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Empleos activos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-label">Empresas</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100K+</div>
+                                <div class="stat-label">Candidatos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Jobs Section -->
+        <section class="featured-jobs" id="jobs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Empleos Destacados</h2>
+                    <p class="section-subtitle">Las mejores oportunidades seleccionadas para ti</p>
+                </div>
+                
+                <div class="jobs-container">
+                    <div class="jobs-grid" id="jobs-grid">
+                        <!-- Job Card 1 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="Hermes International" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">Art Director</h3>
+                                    <p class="company-name">Hermes International S.A.</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Harrisburg, Pennsylvania</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-fulltime">Tiempo Completo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">Diseño</span>
+                                    <span class="tag">Creatividad</span>
+                                    <span class="tag">Adobe Creative Suite</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Recompensa por contratación:</span>
+                                    <span class="salary-amount">$1,240</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Job Card 2 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="TechCorp" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">Senior Developer</h3>
+                                    <p class="company-name">TechCorp Solutions</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>San Francisco, CA</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-remote">Remoto</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">TypeScript</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Salario:</span>
+                                    <span class="salary-amount">$120K - $150K</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Job Card 3 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="MarketingPro" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">Marketing Manager</h3>
+                                    <p class="company-name">MarketingPro Inc.</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>New York, NY</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-fulltime">Tiempo Completo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">Marketing Digital</span>
+                                    <span class="tag">SEO</span>
+                                    <span class="tag">Analytics</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Salario:</span>
+                                    <span class="salary-amount">$80K - $100K</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Job Card 4 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="DataFlow" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">Data Scientist</h3>
+                                    <p class="company-name">DataFlow Analytics</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Austin, TX</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-hybrid">Híbrido</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Machine Learning</span>
+                                    <span class="tag">SQL</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Salario:</span>
+                                    <span class="salary-amount">$110K - $140K</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Job Card 5 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="DesignStudio" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">UX/UI Designer</h3>
+                                    <p class="company-name">DesignStudio Creative</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Los Angeles, CA</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-contract">Contrato</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">Prototyping</span>
+                                    <span class="tag">User Research</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Tarifa:</span>
+                                    <span class="salary-amount">$60 - $80/hr</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Job Card 6 -->
+                        <article class="job-card">
+                            <div class="job-header">
+                                <div class="company-logo">
+                                    <img src="./src/img/suitcase.png" alt="CloudTech" class="logo-img">
+                                </div>
+                                <div class="job-meta">
+                                    <h3 class="job-title">DevOps Engineer</h3>
+                                    <p class="company-name">CloudTech Solutions</p>
+                                    <div class="job-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Seattle, WA</span>
+                                    </div>
+                                </div>
+                                <div class="job-type">
+                                    <span class="badge badge-fulltime">Tiempo Completo</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-details">
+                                <div class="job-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">Kubernetes</span>
+                                </div>
+                                <div class="job-salary">
+                                    <span class="salary-label">Salario:</span>
+                                    <span class="salary-amount">$130K - $160K</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-actions">
+                                <button class="btn btn-outline btn-sm">
+                                    <i class="fas fa-heart"></i>
+                                    Guardar
+                                </button>
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Postularse
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="load-more-container">
+                        <button class="btn btn-outline btn-lg" id="load-more-btn">
+                            <i class="fas fa-plus"></i>
+                            Cargar Más Empleos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Búsqueda Inteligente</h3>
+                        <p>Encuentra empleos que coincidan perfectamente con tu perfil y experiencia</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Seguridad Garantizada</h3>
+                        <p>Tus datos están protegidos con los más altos estándares de seguridad</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Aplicación Rápida</h3>
+                        <p>Postúlate a múltiples empleos con un solo clic usando tu perfil optimizado</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Seguimiento en Tiempo Real</h3>
+                        <p>Monitorea el estado de tus aplicaciones y recibe notificaciones instantáneas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="./src/img/suitcase.png" alt="JobHub Logo" class="footer-logo">
+                        <span class="footer-brand-text">JobHub</span>
+                    </div>
+                    <p class="footer-description">
+                        Conectando talento con oportunidades. La plataforma de empleo más confiable para profesionales y empresas.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Candidatos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Buscar Empleos</a></li>
+                        <li><a href="#">Crear Perfil</a></li>
+                        <li><a href="#">Alertas de Empleo</a></li>
+                        <li><a href="#">Recursos de Carrera</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Para Empresas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Publicar Empleo</a></li>
+                        <li><a href="#">Buscar Candidatos</a></li>
+                        <li><a href="#">Planes de Reclutamiento</a></li>
+                        <li><a href="#">Herramientas HR</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 JobHub. Todos los derechos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Términos de Servicio</a>
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Iniciar Sesión</h3>
+                <button class="modal-close" id="login-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Crear Cuenta</h3>
+                <button class="modal-close" id="signup-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="signup-name">Nombre Completo</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Contraseña</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-type">Tipo de Cuenta</label>
+                    <select id="signup-type" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="candidate">Candidato</option>
+                        <option value="employer">Empresa</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
