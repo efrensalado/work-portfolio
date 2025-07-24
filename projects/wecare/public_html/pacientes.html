@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="./img/wecare128x128.png" type="image/x-icon">
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./dashboard.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }
+        
+        #navbar {
+            background-color: #04bbf4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
+        <a class="navbar-brand" href="#">WeCare</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./dashboard.html">Bienvenido <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="btnLogOut">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="jumbotron">
+            <h4>Panel de administración de tus pacientes.</h4>
+            <p class="lead">Desde aquí podrás realizar registros de nuevos pacientes, ver su historial y cargar archivos a su historial.</p>
+            <p id="data"></p>
+            <button class="btn btn-success" id="new"><i class="fas fa-plus-square"></i></button> &nbsp;
+            <br><br>
+            <div id="wrapper"style="padding: 5px;  margin: 0 auto; position: relative;"></div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Paciente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Nombre (s)</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="paterno">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Apellido Materno</label>
+                        <input type="text" class="form-control" id="materno">
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Fecha de Nacimiento</label>
+                        <input type="text" class="form-control" id="fechaNac">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Número de Telefono</label>
+                        <input type="text" class="form-control" id="num">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="genero">Genero:</label>
+                        <select name="genero" id="genero" class="form-control col-6">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnNewPaciente">Guardar Registro</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Editar datos del paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Nombre (s)</label>
+                            <input type="text" class="form-control" id="name2">
+                        </div>
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="paterno2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Apellido Materno</label>
+                            <input type="text" class="form-control" id="materno2">
+                        </div>
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="fechaNac2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email2">
+                        </div>
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Número de Telefono</label>
+                            <input type="text" class="form-control" id="num2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="genero">Genero:</label>
+                            <select name="genero" id="genero2" class="form-control col-6">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="updatePaciente" class="btn btn-primary">Actualizar Datos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalUploadFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Editar datos del paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="exampleFormControlInput1">Archivo de Historial</label>
+                                <input type="file" class="form-control" name="img[]" id="img[]" accept="image/*" multiple>
+                            </div>
+                            <div class="col">
+                                <label for="exampleFormControlInput1">Título</label>
+                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título para el historial">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="descripcion">Descripción</label>
+                                <textarea name="descripcion" id="descripcion" name="descripcion" rows="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="button" id="uploadHistorial" class="btn btn-primary">Cargar Historial</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script-->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function() {
+        $( "#fechaNac" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '-100:+0'
+        });
+        $( "#fechaNac" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+        $( "#fechaNac2" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '-100:+0'
+        });
+        $( "#fechaNac2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    } );
+
+    $("#updatePaciente").click(function () {
+        Swal.fire({
+            text: '¿Esta seguro de que desea actualizar la información del paciente?',
+            icon: 'question',
+            showConfirmButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: 'Cancelar'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                updateData();
+            }
+        });
+    });
+
+    $("#uploadHistorial").click(function(event) {
+        event.preventDefault();
+        Swal.fire({
+            text: '¿Esta seguro de que desea cargar un nuevo historial médico para el paciente?',
+            icon: 'question',
+            showConfirmButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Aceptar',
+            denyButtonText: 'Cancelar'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                uploadHistorial();
+            }
+        });
+    });
+
+    function getDataPaciente(data, process) {
+        $.ajax({
+            url: 'https://we-care.com.mx/ApiWeCare/CRUD/Pacientes/selectDataIdPaciente.php',
+            data: JSON.stringify({idPaciente: data}),
+            type: "POST",
+            success: function(response) {
+                localStorage.setItem("idUsuario", JSON.parse(response).idUsuario);
+                localStorage.setItem("idPaciente", JSON.parse(response).idPaciente);
+                localStorage.setItem("folio", JSON.parse(response).folio);
+                if (process == 'upt') {
+                    //open modal with data to update
+                    showUpdateModal(response);
+                } else if (process == 'upload') {
+                    //show modal to upload files
+                    showUploadModal(JSON.parse(response))
+                }
+            }
+        });
+    }
+
+    function updateData() {
+        var paciente = {};
+        paciente.nombres = $("#name2").val();
+        paciente.paterno = $("#paterno2").val();
+        paciente.materno = $("#materno2").val();
+        paciente.fechaNacimiento = $("#fechaNac2").val();
+        paciente.genero = $("#genero2").val();
+        paciente.email = $("#email2").val();
+        paciente.telefono = $("#num2").val();
+        paciente.idUsuario = localStorage.getItem("idUsuario");
+
+        if (paciente.nombre == "" || paciente.paterno == "" || paciente.materno == "" || paciente.fechaDeNacimiento == ""
+            || paciente.email == "" || paciente.telefono == "") {
+            Swal.fire({
+                text: 'Todos los campos deben estar completos',
+                icon: 'error'
+            });
+        } else {
+            $.ajax({
+                url: 'https://we-care.com.mx/ApiWeCare/CRUD/Empleados/updatePaciente.php',
+                data: JSON.stringify(paciente),
+                type: "POST",
+                success: function(response) {
+                    Swal.fire({
+                        text: 'Los datos del paciente han sido actualizados.',
+                        icon: 'success',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = './pacientes.html';
+                        }
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        text: 'Ocurrió un error al momento de actulizar los datos del paciente. Intente nuevamente.',
+                        icon: 'error'
+                    })
+                }
+            });
+        }
+    }
+
+    function uploadHistorial() {
+        var form = $("#uploadForm")[0];
+        var data = new FormData(form);
+        data.append('folio', localStorage.getItem('folio'));
+        data.append('idUsuario', localStorage.getItem('idUsuario'));
+        data.append('idEmpleado', localStorage.getItem('idEmpleado'));
+        data.append('idPaciente', localStorage.getItem('idPaciente'));
+        /*console.log(data.getAll('folio'));
+        console.log(data.getAll('idUsuario'));
+        console.log(data.getAll('idEmpleado'));
+        console.log(data.getAll('img[]'));
+        console.log(data.getAll('titulo'));
+        console.log(data.getAll('descripcion'));*/
+        $("#uploadHistorial").attr('disabled', true);
+        $.ajax({
+            url: 'https://we-care.com.mx/ApiWeCare/CRUD/Pacientes/updateHistorialMedico.php',
+            data: data,
+            enctype: 'multipart/form-data',
+            type: 'POST',
+            timeout: 600000,
+            contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+            processData: false, // NEEDED, DON'T OMIT THIS
+            cache: false,
+            success: function(response) {
+                Swal.fire({
+                    text: '¡Historial cargado con éxito!',
+                    icon: 'success'
+                });
+                $("#uploadForm")[0].reset();
+                $("#modalUploadFile").modal('toggle')
+            },
+            error: function() {
+                Swal.fire({
+                    text: 'Ocurrió un error al momento de cargar el historial. \nPor favor, intente de nuevo.',
+                    icon: 'error'
+                });
+            }
+        });
+    }
+
+    function showUpdateModal(data) {
+        var newData = JSON.parse(data)
+        $("#name2").val(newData.nombres);
+        $("#paterno2").val(newData.paterno);
+        $("#materno2").val(newData.materno);
+        $("#email2").val(newData.email);
+        $("#num2").val(newData.telefono);
+        $("#modalUpdate").modal('show');
+    } 
+
+    function showUploadModal(data) {
+        $("#modalUploadFile").modal('show');
+    } 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')
+</script>
+<script type="module">
+    import { h, html, Grid } from "https://unpkg.com/gridjs/dist/gridjs.production.es.min.js";
+    //localStorage.setItem("idEmpleado", 3);
+
+    $(document).ready(function() {
+        drawTable();
+        $( "#fechaNac" ).datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    } );
+
+    function drawTable() {
+        const grid = new gridjs.Grid({
+            columns: [
+                { name: 'no.' },
+                { name: 'Nombre'},
+                { name: 'Apellido Paterno'},
+                { name: 'Apellido Materno'},
+                { name: 'Correo Electronico' },
+                { name: 'Teléfono' },
+                { 
+                    name: 'Editar',
+                    formatter: (_, row) => html(`<button class="btn btn-success btn-sm" onclick="getDataPaciente('${row.cells[0].data}', 'upt')"><i class="fas fa-edit"></i></button>`)
+                },
+                { 
+                    name: 'Cargar Historial',
+                    formatter: (_, row) => html(`<button class="btn btn-success btn-sm" onclick="getDataPaciente('${row.cells[0].data}', 'upload')">Nuevo Historial</button>`)
+                }
+            ],
+            search:{
+                server: {
+                    url: (prev, keyword) => keyword.toUpperCase() != 'PA' &&  keyword.toUpperCase() != 'PE' ?  prev+"?estatusPagoRegistro=" : keyword.toUpperCase() == 'PA' ? prev+"?estatusPagoRegistro=1" : prev+"?estatusPagoRegistro=0" 
+                }
+            },
+            pagination:true,
+            language: {
+                'search': {
+                    'placeholder': 'Buscar paciente...',
+                    'input':'text'
+                },
+                'pagination': {
+                    'previous': '<',
+                    'next': '>',
+                    'showing': 'Paginado',
+                    'results': () => 'Resultados'
+                }
+            },
+            server: {
+                url: 'https://we-care.com.mx/ApiWeCare/CRUD/Empleados/selectPacientesDeMedico.php?idEmpleado=' + localStorage.getItem("idEmpleado"),
+                then: data => data.map(card => [
+                    card.idPaciente,
+                    card.nombre, 
+                    card.apellidoPaterno,
+                    card.apellidoMaterno,
+                    card.email, 
+                    card.telefono
+                ])
+            }
+        }).render(document.getElementById("wrapper"));
+    }
+
+    $("#btnNewPaciente").click(function() {
+        var newPaciente = {};
+        newPaciente.nombres = $("#name").val();
+        newPaciente.paterno = $("#paterno").val();
+        newPaciente.materno = $("#materno").val();
+        newPaciente.fechaNacimiento = $("#fechaNac").val();
+        newPaciente.genero = $("#genero").val();
+        newPaciente.email = $("#email").val();
+        newPaciente.telefono = $("#num").val();
+        newPaciente.idEmpleado = localStorage.getItem("idEmpleado");
+
+        if (newPaciente.nombre == "" || newPaciente.paterno == "" || newPaciente.materno == "" || newPaciente.fechaDeNacimiento == ""
+            || newPaciente.email == "" || newPaciente.telefono == "") {
+            Swal.fire({
+                text: 'Todos los campos deben estar completos',
+                icon: 'error'
+            });
+        } else {
+            sendData(newPaciente);
+        }
+    });
+
+function sendData(data) {
+	$.ajax({
+		url: 'https://we-care.com.mx/ApiWeCare/CRUD/Empleados/createPaciente.php',
+		type: 'POST',
+		data: JSON.stringify(data),
+		success: function(response) {
+			Swal.fire({
+				text: 'El paciente ha sido registrado con éxito',
+				icon: 'success',
+                showConfirmButton: true,
+                showDenyButton: false,
+                confirmButtonText: 'Acpetar',
+			}).then((result) => {
+                window.location.href = './pacientes.html'
+            });
+		},
+		error: function() {
+			Swal.fire({
+				text: '¡Ha ocurrido un error!',
+				icon: 'error'
+			});
+		}
+	});
+}
+
+$("#btnLogOut").click(function() {
+	localStorage.clear();
+    window.location.href = "./login.html";
+});
+
+function clearForm() {
+	$("#name").val('');
+	$("#paterno").val('');
+	$("#materno").val('');
+	$("#fechaNac").val('');
+	$("#email").val('');
+	$("#num").val('');
+}
+</script>
+<script src="./js/pacientes.js"></script>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHGR2BT4T7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-CHGR2BT4T7');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WeCare</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="css/add.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./img/wecare128x128.png"/>
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '168654271439792'); 
+    fbq('track', 'PageView');
+    </script>
+        <noscript>
+         <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=168654271439792&ev=PageView
+        &noscript=1"/>
+        </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body id="page-top" style="height: 110%">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <img class="logo" id="logo" src="img/logo.png">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+        </div>
+    </nav>
+    
+    <section style="height: 100%" class="download bg-primary text-center"  id="download">
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="section-heading qr" style="color:#FFFFFF">¡Descarga la App!</h2>
+                    <br>
+                    <h3 style="color:#FFFFFF">WeCare Médicos:</h3>
+                    <div class="badges">
+                        <a class="badge-link" href="https://play.google.com/store/apps/details?id=com.wecare.medicos"><img src="img/google-play-badge.svg" alt=""></a>
+                        <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+                    </div>
+                    <br>
+                    <div>
+                    <h3 style="color:#FFFFFF">WeCare Pacientes:</h3>
+                    <div class="badges">
+                        <a class="badge-link" href="https://play.google.com/store/apps/details?id=com.wecare.pacientes"><img src="img/google-play-badge.svg" alt=""></a>
+                        <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="cookie-banner" style="display: none">
+        <p class="policy">
+            Al navegar en nuestro sitio, usted esta aceptando el uso de cookies.
+            Haga click en este recuadro para ocultarlo.
+        </p>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+    
+    <script src="./js/jquery.cookiebar.js"></script>
+    
+    <script>
+        if (localStorage.getItem("cookieSeen") != "shown") {
+            $(".cookie-banner").delay(2000).fadeIn();
+            //localStorage.setItem("cookieSeen","shown");
+        }
+        
+        $(".policy").click(function() {
+            $(".cookie-banner").fadeOut();
+            localStorage.setItem("cookieSeen","shown");
+        });
+        
+        $(".cookie-banner").click(function() {
+            $(".cookie-banner").fadeOut();
+            localStorage.setItem("cookieSeen","shown");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+.logo{
+max-width: 70px;
+  max-height: 70px;
+}
+.appWhatsapp{
+    position: fixed;
+    right: 26px;
+    bottom: 100px;
+    width: 60px;
+    z-index: 1000;
+}
+.appWhatsapp img{
+    width: 95%;
+    height: auto;
+}
+
+.myNotice {
+    position: fixed;
+    min-height: 120px;
+    width: 252px;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: aquamarine;
+}
+
+section.features .feature-item i{
+    /*background: #17a2b8 !important;*/
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 1px;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    padding: 10px 15px 0px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    height: 20px;
+    background-color: #777;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.policy {
+    color: #FFF;
+    border-color: #000;
+}
+.qr{
+    font-weight: bold;
+    font-family: Catamaran,Helvetica,Arial,sans-serif;
+}

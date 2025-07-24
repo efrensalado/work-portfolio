@@ -1,0 +1,2 @@
+[02-Mar-2021 05:57:00 UTC] PHP Warning:  require(vendor/autoload.php): failed to open stream: No such file or directory in /home/wecare/public_html/c1.php on line 13
+[02-Mar-2021 05:57:00 UTC] PHP Fatal error:  require(): Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/wecare/public_html/c1.php on line 13
