@@ -1,0 +1,5 @@
+[13-Nov-2020 00:17:49 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function beginTransaction() on null in /home/dicormotechnolog/public_html/empresas/CRUD/Objects/Empresa.php:30
+Stack trace:
+#0 /home/dicormotechnolog/public_html/empresas/CRUD/Empresa/create.php(43): Empresa->create()
+#1 {main}
+  thrown in /home/dicormotechnolog/public_html/empresas/CRUD/Objects/Empresa.php on line 30
