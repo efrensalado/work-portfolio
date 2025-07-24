@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago de Registro WeCare</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="./payment-styles.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <h2 class="text-primary">Datos del usuario</h2>
+        <br>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="nombre">Nombre (s):</label>
+                <input type="text" class="form-control" id="nombre" disabled>
+            </div>
+            <div class="form-group col">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" disabled>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" disabled>
+            </div>
+            <div class="form-group col">
+                <label for="tel">Telefono: </label>
+                <input type="text" class="form-control" id="tel" disabled>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="monto">Cantidad a Pagar</label>
+                <input type="text" class="form-control form-control-lg-6" id="monto" disabled>
+                <input type="hidden" id="idRol">
+            </div>
+        </div>
+        <hr class="bg-info">
+        <br>
+        <div class="form-row">
+            <div class="col-md-6">
+                <p>Tarjetas de Crédito</p>
+                <img src="./cards1.png">
+            </div>
+            <div class="col">
+                <p>Tarjetas de debito</p>
+                <img src="bancomer.png">
+                <img src="santander.png">
+                <img src="hsbc.png">
+                <img src="scotiabank.png">
+                <img src="inbursa.png">
+                <img src="ixe.png">
+
+            </div>
+        </div>
+        <form id="payment-form">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Nombre del titular</label>
+                    <input class="form-control" type="text" placeholder="Como aparece en la tarjeta" autocomplete="off" data-openpay-card="holder_name">
+                </div>
+                <div class="form-group col">
+                    <label>Número de tarjeta</label>
+                    <input type="text" class="form-control" autocomplete="off" data-openpay-card="card_number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Fecha de expiración</label>
+                    <input type="text" class="form-control" placeholder="Mes" data-openpay-card="expiration_month">
+                    <input type="text" class="form-control" placeholder="Año" data-openpay-card="expiration_year">
+                </div>
+                <div class="form-group col">
+                    <label>Código de seguridad</label>
+                    <input type="text" class="form-control" placeholder="3 dígitos" autocomplete="off" data-openpay-card="cvv2">
+                </div>
+                <input type="hidden" name="token_id" id="token_id">
+                <input type="hidden" name="folio" id="folio">
+                <input type="hidden" name="idUsuario" id="idUsuario">
+            </div>
+        </form>
+        <div class="row">
+            <div class="col">
+                <div class="logo">Transacciones realizadas vía:</div>
+                <img src="./openpay.png" alt="">
+            </div>
+            <div class="col">
+                <div class="shield">Tus pagos se realizan de forma segura con encriptación de 256 bits</div>
+                <img src="./security.png" alt="">
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <button class="btn btn-lg btn-info" id="pay-button">Realizar pago de WeCare</button>
+            </div>
+        </div>
+        
+    <div id="myModal" class="modal">
+        <div class="modal-content"></div>
+    </div>
+
+    </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript" src="https://js.openpay.mx/openpay.v1.min.js"></script>
+<script type='text/javascript' src="https://js.openpay.mx/openpay-data.v1.min.js"></script>
+<script src="./app.js"></script>
+
+<script>
+
+toastr.options = {
+    "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-left",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
+    OpenPay.setId('moh4gjf6lhoaf1gjkyih');
+    //console.log(2);
+    OpenPay.setApiKey('pk_f0e9ffad88914d599cc816898c001685');
+    //console.log(3);
+    OpenPay.setSandboxMode(true);
+    //console.log(4);
+    //Se genera el id de dispositivo
+    var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
+    var modal = document.getElementById("myModal");
+    $('#pay-button').on('click', function(event) {
+        modal.style.display = "block";
+        //console.log("entra");
+        $("#pay-button").prop("disabled", true);
+        OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+    });
+
+
+    var sucess_callbak = function(response) {
+        
+        
+        var token_id = response.data.id;
+        $('#token_id').val(token_id);
+        //$('#payment-form').submit();
+        //alert("Pago realizado correctamente :)");
+        sendToWeCareServer();
+    };
+
+    var error_callbak = function(response) {
+        modal.style.display = "none";
+
+        var desc = response.data.description != undefined ? response.data.description : response.message;
+        alert("ERROR [" + response.status + "] " + desc);
+        $("#pay-button").prop("disabled", false);
+    };
+
+    function sendToWeCareServer() {
+        var data = {};
+        data.nombre = $("#nombre").val();
+        data.idUsuario = $("#idUsuario").val();
+        data.folio = $("#folio").val();
+        data.apellidos = $("#apellidos").val();
+        data.telefono = $("#tel").val();
+        data.email = $("#email").val();
+        data.token_id = $("#token_id").val();
+        data.deviceIdHiddenFieldName = deviceSessionId;
+        data.idRol = $("#idRol").val();
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "https://we-care.com.mx/ApiWeCare2/CRUD/Empleados/pagoEmpleado.php",
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function(response) {
+                modal.style.display = "none";
+                //alert("Pago realizado con exito :)")
+                toastr.info("Pago realizado con exito :)");
+            },
+            error: function(error) {
+                modal.style.display = "none";
+               // $('#myModal').modal('hide');
+                switch (error) {
+                    case 3001:
+                        //alert("La tarjeta ha sido rechazada :c");
+                        toastr.error("La tarjeta ha sido rechazada :c");
+                        break;
+                    case 3002:
+                        //alert("La tarjeta ha expirado :c");
+                        toastr.error("La tarjeta ha expirado :c");
+                        break;
+                    case 3003:
+                        //alert("La tarjeta no tiene fondos suficientes :c");
+                        toastr.error("La tarjeta no tiene fondos suficientes :c");
+                        break;
+                    case 3004:
+                        //alert("La tarjeta ha sido identificada como una tarjeta robada :/");
+                        toastr.error("La tarjeta ha sido identificada como una tarjeta robada :/");
+                        break;
+                    case 3005:
+                        //alert("La tarjeta ha sido rechazada por el sistema antifraudes :/");
+                        toastr.error("La tarjeta ha sido rechazada por el sistema antifraudes :/");
+                        break;
+
+                }
+            }
+        });
+    }
+</script>
+
+</html>
